@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BRAHMAN | Discord Community</title>
+
+    <style>
+
+        :root {
+            --negro: #070707;
+            --gris: #111111;
+            --gris-claro: #1b1b1b;
+            --rojo: #b30018;
+            --rojo-claro: #e00020;
+            --blanco: #ffffff;
+            --gris-texto: #aaaaaa;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--negro);
+            color: var(--blanco);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 7%;
+
+            background: #080808ee;
+            border-bottom: 1px solid #292929;
+
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            color: var(--rojo-claro);
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 4px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+
+            margin-left: 20px;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--rojo-claro);
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 650px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 100px 8%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #050505,
+                    #050505aa,
+                    #05050544
+                ),
+
+                radial-gradient(
+                    circle at 80% 50%,
+                    #680014,
+                    transparent 45%
+                );
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .small-title {
+            color: var(--rojo-claro);
+
+            letter-spacing: 6px;
+
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: clamp(
+                70px,
+                13vw,
+                150px
+            );
+
+            margin: 20px 0;
+
+            line-height: 0.8;
+
+            letter-spacing: 10px;
+        }
+
+        .hero h2 {
+            color: #dddddd;
+
+            font-weight: normal;
+
+            font-size: 22px;
+        }
+
+        .hero p {
+            color: var(--gris-texto);
+
+            line-height: 1.8;
+
+            max-width: 600px;
+        }
+
+
+        /* =========================
+           BOTÓN DISCORD
+        ========================= */
+
+        .boton {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            padding: 14px 25px;
+
+            background: var(--rojo);
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            border-radius: 5px;
+
+            border: none;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background: var(--rojo-claro);
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 30px #e0002044;
+        }
+
+
+        /* =========================
+           SECCIONES
+        ========================= */
+
+        section {
+            padding: 80px 7%;
+        }
+
+        .titulo-seccion {
+            font-size: 38px;
+
+            margin-bottom: 10px;
+        }
+
+        .descripcion {
+            color: var(--gris-texto);
+
+            max-width: 700px;
+
+            line-height: 1.7;
+        }
+
+        .linea {
+            width: 70px;
+
+            height: 4px;
+
+            background: var(--rojo);
+
+            margin: 20px 0 35px;
+        }
+
+
+        /* =========================
+           JERARQUÍA
+        ========================= */
+
+        .jerarquia {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(230px, 1fr)
+                );
+
+            gap: 25px;
+
+            margin-top: 40px;
+        }
+
+        .tarjeta {
+            background:
+                linear-gradient(
+                    145deg,
+                    #1a1a1a,
+                    #0e0e0e
+                );
+
+            border: 1px solid #292929;
+
+            border-radius: 10px;
+
+            padding: 30px;
+
+            text-align: center;
+
+            transition: 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-8px);
+
+            border-color: var(--rojo);
+
+            box-shadow:
+                0 10px 35px #8b001c33;
+        }
+
+        .icono {
+            font-size: 45px;
+
+            margin-bottom: 15px;
+        }
+
+        .cargo {
+            color: var(--rojo-claro);
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            font-weight: bold;
+        }
+
+        .nombre {
+            font-size: 25px;
+
+            margin: 10px 0;
+        }
+
+        .texto {
+            color: var(--gris-texto);
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           DIVISIONES
+        ========================= */
+
+        .divisiones {
+            background: #0d0d0d;
+        }
+
+        .division-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+
+            margin-top: 40px;
+        }
+
+        .division {
+            padding: 35px;
+
+            background: #151515;
+
+            border-left: 4px solid var(--rojo);
+
+            transition: 0.3s;
+        }
+
+        .division:hover {
+            transform: translateX(8px);
+
+            background: #1c1c1c;
+        }
+
+        .division h3 {
+            font-size: 26px;
+
+            margin-top: 0;
+        }
+
+        .division .numero {
+            color: var(--rojo-claro);
+
+            font-size: 13px;
+
+            letter-spacing: 3px;
+        }
+
+        .division p {
+            color: var(--gris-texto);
+        }
+
+
+        /* =========================
+           MIEMBROS
+        ========================= */
+
+        .miembros {
+            text-align: center;
+        }
+
+        .contador {
+            font-size: 60px;
+
+            color: var(--rojo-claro);
+
+            font-weight: bold;
+        }
+
+        .miembros p {
+            color: var(--gris-texto);
+        }
+
+        .miembro-box {
+            max-width: 600px;
+
+            margin: 40px auto;
+        }
+
+        .miembro-box input {
+            width: 100%;
+
+            padding: 15px;
+
+            background: #161616;
+
+            border: 1px solid #333;
+
+            color: white;
+
+            border-radius: 5px;
+
+            outline: none;
+        }
+
+        .miembro-box input:focus {
+            border-color: var(--rojo);
+        }
+
+
+        /* =========================
+           FRASE
+        ========================= */
+
+        .frase {
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #160005,
+                    #080808
+                );
+        }
+
+        .frase h2 {
+            font-size: 38px;
+
+            max-width: 800px;
+
+            margin: auto;
+
+            line-height: 1.4;
+        }
+
+        .frase span {
+            color: var(--rojo-claro);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 40px;
+
+            background: #050505;
+
+            color: #666;
+        }
+
+        footer strong {
+            color: var(--rojo-claro);
+
+            letter-spacing: 3px;
+        }
+
+
+        /* =========================
+           MÓVIL
+        ========================= */
+
+        @media(max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            nav a {
+                margin-left: 8px;
+
+                margin-right: 8px;
+            }
+
+            .division-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 65px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+            BRAHMAN
+        </div>
+
+        <div>
+
+            <a href="#inicio">
+                Inicio
+            </a>
+
+            <a href="#jerarquia">
+                Jerarquía
+            </a>
+
+            <a href="#divisiones">
+                Divisiones
+            </a>
+
+            <a href="#miembros">
+                Miembros
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         INICIO
+    ========================= -->
+
+    <header
+        class="hero"
+        id="inicio">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                DISCORD COMMUNITY
+            </div>
+
+
+            <h1>
+                BRAHMAN
+            </h1>
+
+
+            <h2>
+                Una comunidad.
+                Una familia.
+                Una misma bandera.
+            </h2>
+
+
+            <p>
+
+                Bienvenido al servidor de Discord
+                BRAHMAN.
+
+                Un lugar para hablar,
+                jugar, conocer gente
+                y pasar buenos momentos juntos.
+
+            </p>
+
+
+            <!-- BOTÓN CON EL LINK REAL -->
+
+            <a
+                class="boton"
+                href="https://discord.gg/sZvFN2uMY"
+                target="_blank">
+
+                ENTRAR AL DISCORD
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         JERARQUÍA
+    ========================= -->
+
+    <section id="jerarquia">
+
+        <h2 class="titulo-seccion">
+            Jerarquía
+        </h2>
+
+
+        <p class="descripcion">
+
+            Estos son los cargos principales
+            que forman la estructura de BRAHMAN.
+
+        </p>
+
+
+        <div class="linea"></div>
+
+
+        <div class="jerarquia">
+
+
+            <!-- LUCY -->
+
+            <article class="tarjeta">
+
+                <div class="icono">
+                    👑
+                </div>
+
+                <div class="cargo">
+                    COMANDANTE
+                </div>
+
+                <div class="nombre">
+                    Lucy
+                </div>
+
+                <p class="texto">
+                    Líder principal de BRAHMAN.
+                </p>
+
+            </article>
+
+
+            <!-- EIDAN -->
+
+            <article class="tarjeta">
+
+                <div class="icono">
+                    ⚔️
+                </div>
+
+                <div class="cargo">
+                    SUBCOMANDANTE
+                </div>
+
+                <div class="nombre">
+                    Eidan
+                </div>
+
+                <p class="texto">
+                    Mano derecha de la comandante.
+                </p>
+
+            </article>
+
+
+            <!-- ERIC -->
+
+            <article class="tarjeta">
+
+                <div class="icono">
+                    ⚔️
+                </div>
+
+                <div class="cargo">
+                    SUBCOMANDANTE
+                </div>
+
+                <div class="nombre">
+                    Eric
+                </div>
+
+                <p class="texto">
+                    Segundo subcomandante de BRAHMAN.
+                </p>
+
+            </article>
+
+
+            <!-- ALEXIS -->
+
+            <article class="tarjeta">
+
+                <div class="icono">
+                    ⭐
+                </div>
+
+                <div class="cargo">
+                    EJECUTIVO
+                </div>
+
+                <div class="nombre">
+                    Alexis
+                </div>
+
+                <p class="texto">
+                    Responsable de apoyar
+                    la organización del servidor.
+                </p>
+
+            </article>
+
+
+            <!-- DAMAS DE HONOR -->
+
+            <article class="tarjeta">
+
+                <div class="icono">
+                    💎
+                </div>
+
+                <div class="cargo">
+                    DAMAS DE HONOR
+                </div>
+
+                <div class="nombre">
+                    BRAMY PAPICHULO
+                </div>
+
+                <p class="texto">
+                    Grupo especial dentro
+                    de la organización.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         DIVISIONES
+    ========================= -->
+
+    <section
+        class="divisiones"
+        id="divisiones">
+
+
+        <h2 class="titulo-seccion">
+            Divisiones
+        </h2>
+
+
+        <p class="descripcion">
+
+            BRAHMAN cuenta con tres divisiones,
+            cada una dirigida por su capitán
+            y subcapitán.
+
+        </p>
+
+
+        <div class="linea"></div>
+
+
+        <div class="division-grid">
+
+
+            <!-- PRIMERA -->
+
+            <article class="division">
+
+                <div class="numero">
+                    PRIMERA DIVISIÓN
+                </div>
+
+                <h3>
+                    ⚔️ Karma
+                </h3>
+
+                <p>
+                    Capitán de la Primera División.
+                </p>
+
+                <p>
+
+                    <strong>
+                        Sub-capitán:
+                    </strong>
+
+                    Por determinar
+
+                </p>
+
+            </article>
+
+
+            <!-- SEGUNDA -->
+
+            <article class="division">
+
+                <div class="numero">
+                    SEGUNDA DIVISIÓN
+                </div>
+
+                <h3>
+                    🔥 Betel
+                </h3>
+
+                <p>
+                    Capitán de la Segunda División.
+                </p>
+
+                <p>
+
+                    <strong>
+                        Sub-capitán:
+                    </strong>
+
+                    Por determinar
+
+                </p>
+
+            </article>
+
+
+            <!-- TERCERA -->
+
+            <article class="division">
+
+                <div class="numero">
+                    TERCERA DIVISIÓN
+                </div>
+
+                <h3>
+                    🩸 Caelos
+                </h3>
+
+                <p>
+                    Capitán de la Tercera División.
+                </p>
+
+                <p>
+
+                    <strong>
+                        Sub-capitán:
+                    </strong>
+
+                    Por determinar
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MIEMBROS
+    ========================= -->
+
+    <section
+        class="miembros"
+        id="miembros">
+
+
+        <h2 class="titulo-seccion">
+            Miembros de BRAHMAN
+        </h2>
+
+
+        <div
+            class="linea"
+            style="
+                margin-left:auto;
+                margin-right:auto;
+            ">
+
+        </div>
+
+
+        <div class="contador">
+            ∞
+        </div>
+
+
+        <p>
+            Nuestra comunidad sigue creciendo.
+        </p>
+
+
+        <div class="miembro-box">
+
+            <input
+                type="text"
+                id="busqueda"
+                placeholder="Buscar un miembro...">
+
+        </div>
+
+
+        <p id="resultado">
+            Escribe un nombre para buscar.
+        </p>
+
+
+    </section>
+
+
+    <!-- =========================
+         FRASE
+    ========================= -->
+
+    <section class="frase">
+
+        <h2>
+
+            "No importa dónde estemos.
+
+            <span>
+                Seguimos siendo BRAHMAN.
+            </span>"
+
+        </h2>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <strong>
+            BRAHMAN
+        </strong>
+
+        <p>
+            Comunidad de Discord para hablar,
+            jugar y pasar el rato.
+        </p>
+
+        <small>
+            Página creada para la comunidad BRAHMAN.
+        </small>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        const busqueda =
+            document.getElementById("busqueda");
+
+
+        const resultado =
+            document.getElementById("resultado");
+
+
+        busqueda.addEventListener(
+            "input",
+            function() {
+
+                const nombre =
+                    busqueda.value.trim();
+
+
+                if(nombre === "") {
+
+                    resultado.textContent =
+                        "Escribe un nombre para buscar.";
+
+                    return;
+                }
+
+
+                resultado.textContent =
+                    "Buscando a " +
+                    nombre +
+                    "...";
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
